@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FebryPopularMovie</string>
+    <string name="action_popular">Popular</string>
+    <string name="action_toprated">Top Rated</string>
+</resources>
