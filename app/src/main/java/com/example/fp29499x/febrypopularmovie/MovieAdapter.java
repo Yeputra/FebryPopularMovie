@@ -72,6 +72,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             moviecardview = (CardView) itemView.findViewById(R.id.moviecardview);
 
             moviecardview.setOnClickListener(this);
+
+            movietittle.setSelected(true);
         }
 
         @Override

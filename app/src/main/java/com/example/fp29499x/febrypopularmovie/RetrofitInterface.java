@@ -9,7 +9,6 @@ import retrofit2.http.Query;
  */
 
 public interface RetrofitInterface {
-    public static final String API_KEY = "YOUR_OWN_API_KEY";
     public static final String BASE_IMAGE = "https://image.tmdb.org/t/p/w185";
 
     @GET("movie/popular")

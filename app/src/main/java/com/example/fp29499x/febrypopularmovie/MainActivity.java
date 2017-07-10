@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
 //        GridLayoutManager --> size sama semua
 //        StaggeredGridLayoutManager --> size beda2 sesuai ukuran gambar
-//        customlayoutmanager
 
         mMainMovieList.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
         movieAdapter = new MovieAdapter(movieList);
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 RetrofitInterface retrofitInterface = Network.getRetrofit().create(RetrofitInterface.class);
-                Call<Movies> movie = retrofitInterface.getMovieTopRated(RetrofitInterface.API_KEY);
+                Call<Movies> movie = retrofitInterface.getMovieTopRated(BuildConfig.THE_MOVIE_DB_API);
                 movie.enqueue(new Callback<Movies>() {
                     @Override
                     public void onResponse(Call<Movies> call, Response<Movies> response) {
@@ -79,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
                         movieList.clear();
                         movieList.addAll(response.body().getResults());
                         movieAdapter.notifyDataSetChanged();
-                        Toast.makeText(MainActivity.this, "Sukses", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "Sukses", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<Movies> call, Throwable t) {
                         Log.e(MainActivity.class.getSimpleName(), "onFailure: ");
-                        Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                     }
                 });
                 return "";
@@ -99,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 RetrofitInterface retrofitInterface = Network.getRetrofit().create(RetrofitInterface.class);
-                Call<Movies> movie = retrofitInterface.getMoviePopular(RetrofitInterface.API_KEY);
+                Call<Movies> movie = retrofitInterface.getMoviePopular(BuildConfig.THE_MOVIE_DB_API);
                 movie.enqueue(new Callback<Movies>() {
                     @Override
                     public void onResponse(Call<Movies> call, Response<Movies> response) {
@@ -107,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
                         movieList.clear();
                         movieList.addAll(response.body().getResults());
                         movieAdapter.notifyDataSetChanged();
-                        Toast.makeText(MainActivity.this, "Sukses", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "Sukses", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<Movies> call, Throwable t) {
                         Log.e(MainActivity.class.getSimpleName(), "onFailure: ");
-                        Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_SHORT).show();
                     }
                 });
                 return "";

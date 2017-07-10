@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_size_movie">16sp</dimen>
+    <dimen name="movie_tittle_detail">19sp</dimen>
 </resources>
